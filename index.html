@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countup.js</title>
+  <script src="./js/jquery-1.10.1.min.js"></script>
+  <script src="./js/countup.js"></script>
+  <script src="./js/waypoints.js"></script>
+  <style>
+    body {height:200vh;}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <strong style="height:100vh; display:inline-block;">WayPoint 추가 완료</strong>
+    <div class="count count1">1000000</div>
+    <div class="count count2">100</div> 
+  </div>
+  <script>
+    $(function() {
+      $('.count').count({
+        duration: 2000, // 작동시간
+        delay:1000, // 몇초뒤에 시작할건지 딜레이
+        start: 0, // 몇부터 시작할건지; 숫자가 count의 숫자보다 크다면 숫자가 내려감.
+        decimalPlaces: 0, // 소수점을 몇자리 까지 출력할건지.
+        offset: '100%', // 100% - 화면에 들어왔을때 실행 
+        triggerOnce: false, // 한번만 실행 될건지
+        end: null, // 끝나는 지점 ex 숫자가 1 이라면 숫자가 멈춰있는것처럼 보이기 때문에 크게 지정 후 콜백함수로 마지막에 text를 1로 변경
+        onStart: function () {
+          console.log("시작")
+        }, // 시작하기 전 시작될 콜백함수
+        onLeave: function () {
+          console.log("종료")
+        } // 완료 후 진행될 콜백함수
+      });
+    });
+  </script>
+</body>
+</html>
